@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['line']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Location A');
+      data.addColumn('number', 'Location B');
+      data.addColumn('number', 'Location C');
+
+      data.addRows([
+        [1, 37.8, 80.8, 41.8],
+        [2, 30.9, 69.5, 32.4],
+        [3, 25.4, 57.0, 25.7],
+        [4, 30.4, 55.2, 33.4],
+        [5, 35.4, 49.1, 37.2],
+        [6, 40.0, 43.3, 42.3],
+        [7, 46.0, 39.0, 47.5]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Temperature Trends',
+          subtitle: 'Temperature in Location A, B, and C',
+        },
+        width: 600,
+        height: 300
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</head>
+<body>
+  <div id="linechart_material"></div>
+</body>
+</html>
